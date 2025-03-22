@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bilangan fibonacci</title>
+    </head>
+    <body>
+        <h2>Bilangan fibonacci</h2>
+        <h3>Masukkan sembarang angka</h3>
+        <div id="datainput" style="float: left;">
+        <input type="text" id="angka"/>
+        <button onclick="show_fib()">CLICK</button>    
+        </div>
+        <br>
+        <p id="hasil"></p>
+        <br>
+        <h5 style="color:black;" align="right">Revi Dyah Indhasari <br> 22/499953/TK/54777</h5>
+        <script>
+            function fib(n) {
+                const fib = [1, 1]
+                for (let i = 2; i< n; i++) {
+                   let nexFib = fib[i - 1] + fib[i - 2];
+                   if (nexFib >= n) break;
+                   fib.push(nexFib);
+                }
+                return fib
+            }
+
+            function show_fib() {
+                let num = parseInt(document.getElementById("angka").value);
+                let hasil = fib(num).join(", ");
+                document.getElementById("hasil").innerHTML = "Bilangan fibonacci kurang dari " + num + " adalah: " + hasil;
+            }
+        </script>
+    <p id="hasil"></p>
+    </body>
+</html>

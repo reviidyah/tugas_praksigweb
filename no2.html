@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validasi Password</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        .modal-header {
+            font-weight: bold;
+            text-align: left;
+        }
+        .modal-content {
+            margin-top: 10px;
+        }
+        .modal-footer {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .close {
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: red;
+        }
+        .modal button {
+            color: blue;
+            padding: 5px 15px;
+            border: blue;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .modal button:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Validasi Input</h1>
+    <p>Masukkan nama, password, dan alamat email Anda:</p>
+    <form onsubmit="return validasi()">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <input type="submit" value="Klik">
+    </form>
+    
+    <div id="myModal" class="modal">
+        <div class="modal-header">
+            <span class="close" onclick="tutupModal()">&times;</span>
+            JavaScript Alert
+        </div>
+        <div class="modal-content" id="modalMessage">
+            
+        </div>
+        <div class="modal-footer">
+            <button onclick="tutupModal()">OK</button>
+        </div>
+    </div>
+    <br>
+        <h5 style="color:black;" align="right">Revi Dyah Indhasari <br> 22/499953/TK/54777</h5>
+    <script>
+        function validasi() {
+            var password = document.getElementById("password").value;
+            var modal = document.getElementById("myModal");
+            var modalMessage = document.getElementById("modalMessage");
+
+            if (password !== "sss") {
+                modalMessage.innerHTML = "Password salah";
+                modal.style.display = "block";
+                return false;
+            }
+
+            modalMessage.innerHTML = "Password benar!";
+            modal.style.display = "block";
+            return false;
+        }
+
+        function tutupModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

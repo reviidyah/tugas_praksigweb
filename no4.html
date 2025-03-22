@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bilangan prima</title>
+    </head>
+    <body>
+        <h2>Bilangan prima</h2>
+        <h3>Masukkan sembarang angka</h3>
+        <div id="datainput" style="float: left;">
+        <input type="text" id="angka"/>
+        <button onclick="show_prima()">CLICK</button>    
+        </div>
+        <br>
+        <p id="hasil"></p>
+        <br>
+        <h5 style="color:black;" align="right">Revi Dyah Indhasari <br> 22/499953/TK/54777</h5>
+        <script>
+            function Prima(n) {
+                if (n < 2) return false;
+                for (let i = 2; i <= Math.sqrt(n); i++) {
+                    if (n % i === 0) return false;
+                }
+                return true;
+            }
+
+            function show_prima() {
+                let num = parseInt(document.getElementById("angka").value);
+                let hasil = "";
+                
+                for (let i = 2; i < num; i++) {
+                    if (Prima(i)) {
+                        hasil += i + ", ";
+                    }
+                }
+                
+                if (hasil.length > 0) {
+                    hasil = hasil.slice(0, -2); // Menghapus koma terakhir
+                }
+                
+                document.getElementById("hasil").innerHTML = "Bilangan prima kurang dari " + num + " adalah: " + hasil;
+            }
+        </script>
+    <p id="hasil"></p>
+    </body>
+</html>

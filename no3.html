@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validasi Password</title>
+</head>
+<body>
+    <h1>Validasi Input</h1>
+    <p>Masukkan nama dan umur Anda:</p>
+        Nama : <input type="text" id="nama" required><br><br>
+        Umur : <input type="umur" id="umur" required><br><br>
+        <button onclick="klik()">Klik</button>
+        <br>
+        <p id="isi"></p>
+        <br>
+        <h5 style="color:black;" align="right">Revi Dyah Indhasari <br> 22/499953/TK/54777</h5>
+        <script>
+            function klik() {
+                var nama = document.getElementById("nama").value;
+                var umur = parseInt(document.getElementById("umur").value);
+                var output = document.getElementById("isi");
+        
+                if (nama.trim() === "") {
+                    alert("Isikan nama!!");
+                    return;
+                }
+        
+                if (umur <= 0) {
+                    output.innerHTML = "Anda Game Over";
+                } else if (umur <= 5) {
+                    output.innerHTML = "Anda masih bayi";
+                } else if (umur >= 6 && umur <= 15) {
+                    output.innerHTML = "Anda masih anak-anak";
+                } else if (umur >= 16 && umur <= 30) {
+                    output.innerHTML = "Anda masih remaja";
+                } else if (umur >= 31 && umur <= 60) {
+                    output.innerHTML = "Anda sudah dewasa";
+                } else {
+                    output.innerHTML = "Anda sudah dewasa";
+                }
+            }
+        </script>
+</body>
+</html>

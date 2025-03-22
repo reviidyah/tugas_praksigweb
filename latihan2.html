@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktor Sweet Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            border: 1px solid black;
+            text-align: center;
+        }
+        .header, .footer {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .content {
+            display: flex;
+        }
+        .menu {
+            width: 30%;
+            background-color: lightgray;
+            padding: 10px;
+        }
+        .menu p {
+            cursor: pointer;
+            padding: 8px;
+            margin: 5px 0;
+            background-color: white;
+            border: 1px solid gray;
+        }
+        .menu p:hover {
+            background-color: darkgray;
+        }
+        .info {
+            width: 70%;
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Aktor Sweet Home</div>
+        <div class="content">
+            <div class="menu">
+                <p onclick="showAktor('GoYoonJung')">Go Yoon Jung</p>
+                <p onclick="showAktor('LeeDohyun')">Lee Do Hyun</p>
+                <p onclick="showAktor('SongKang')">Song Kang</p>
+            </div>
+            <div class="info" id="aktorInfo"></div>
+        </div>
+        <div class="footer">Copyright @ (revi)</div>
+    </div>
+
+    <script>
+        const aktorData = {
+            GoYoonJung: {
+                title: "Go Yoon Jung",
+                desc1: "Go Youn-jung (lahir pada 22 April 1996) adalah seorang aktris dan model Korea Selatan. Dia membuat debut aktingnya di serial televisi He Is Psychometric (2019) dan mendapatkan pengakuan atas peran pendukungnya dalam produksi Netflix Sweet Home (2020).",
+                desc2: "Dia juga dikenal karena karyanya dalam serial Law School (2021), Alchemy of Souls (2022–2023), Moving (2023), dan Death's Game (2023–2024), serta film Hunt (2022).",
+                img: "https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/01/2023/09/20/F6cFJcfaYAAX0T4-2071081531.png"
+            },
+            LeeDohyun: {
+                title: "Lee Do Hyun",
+                desc1: "Lee Do-hyun (Korea: 이도현), adalah seorang aktor asal Korea Selatan. Ia paling dikenal untuk perannya dalam Hotel del Luna (2019), 18 Again (2020), Sweet Home (2020), Youth of May (2021), The Glory (2022-2023), dan The Good Bad Mother (2023).",
+                desc2: "Lee Do-hyun memulai debut aktingnya pada drama komedi hitam tahun 2017 Prison Playbook, di mana ia memerankan versi muda dari karakter Jung Kyung-ho.",
+                img: "https://cdn.idntimes.com/content-images/post/20220825/68533078561fb7ae5cd500-6c55fb7fcad0a89be5c8eedc55933eff_600x400.jpg"
+            },
+            SongKang: {
+                title: "Song Kang",
+                desc1: "Song Kang (lahir 23 April 1994) adalah aktor asal Korea Selatan. Ia dikenal sebagai pemeran utama dalam serial Love Alarm (2019-2020), Sweet Home (2020), Nevertheless (2021), dan My Demon (2023).",
+                desc2: "Song Kang memulai debut aktingnya sebagai pemeran pendukung dalam seri televisi komedi romantis tahun 2017 The Liar and His Lover. Pada tahun yang sama, ia menjadi pemeran dalam drama keluarga Man in the Kitchen.",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/231124_Song_Kang.jpg/220px-231124_Song_Kang.jpg"
+            }
+        };
+
+        function showAktor(aktor) {
+            let data = aktorData[aktor];
+            document.getElementById("aktorInfo").innerHTML = `
+                <h2>${data.title}</h2>
+                <p>${data.desc1}</p>
+                <p>${data.desc2}</p>
+                <img src="${data.img}" alt="${data.title}">
+            `;
+        }
+
+        window.onload = () => showAktor('GoYoonJung');
+    </script>
+</body>
+</html>
